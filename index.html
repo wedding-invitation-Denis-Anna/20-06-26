@@ -426,27 +426,23 @@
             }
         }
         
-        /* Календарь - ИСПРАВЛЕННЫЙ */
+        /* Календарь - ИСПРАВЛЕННЫЙ для мобильных */
         .calendar-scroll-container {
-            overflow-x: auto;
-            margin: 0 -15px;
-            padding: 0 15px;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none; /* Для Firefox */
-            -ms-overflow-style: none; /* Для IE и Edge */
-        }
-        
-        .calendar-scroll-container::-webkit-scrollbar {
-            display: none; /* Для Chrome, Safari и Opera */
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            justify-content: center;
         }
         
         .calendar-container {
-            width: 600px; /* Фиксированная ширина для скролла */
-            margin: 0 auto;
+            width: 100%;
+            max-width: 600px;
             background-color: rgb(148, 188, 163);
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgb(93, 119, 84);
+            margin: 0 auto;
         }
         
         .calendar-header {
@@ -467,18 +463,21 @@
         
         .calendar-day {
             background-color: rgb(255, 255, 255);
-            padding: 15px 5px;
+            padding: 10px 5px;
             text-align: center;
             font-weight: 500;
-            min-height: 60px;
+            min-height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: clamp(0.8rem, 3vw, 1rem);
         }
         
         .calendar-day-name {
             background-color: var(--pale-yellow);
             font-weight: 600;
+            padding: 12px 5px;
+            font-size: clamp(0.85rem, 3vw, 1rem);
         }
         
         .calendar-day-highlight {
@@ -567,86 +566,80 @@
         }
         
         /* Убираем старый таймлайн и добавляем новую кривую линию */
-.program-timeline {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    padding-left: 15px;
-    padding-right: 15px;
-}
+        .program-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
 
-/* Скрываем старую вертикальную линию и точки */
-.program-timeline:before {
-    display: none;
-}
+        /* Скрываем старую вертикальную линию и точки */
+        .program-timeline:before {
+            display: none;
+        }
 
-.program-dot {
-    display: none;
-}
+        .program-dot {
+            display: none;
+        }
 
-/* Новая кривая линия - SVG путь */
-.program-curve-line {
-    position: absolute;
-    top: 0;
-    left: 30px;
-    right: 30px;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0.7;
-}
+        /* Новая кривая линия - SVG путь */
+        .program-curve-line {
+            position: absolute;
+            top: 0;
+            left: 30px;
+            right: 30px;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.7;
+        }
 
-/* Стили для элементов программы с новой кривой линией */
-.program-item {
-    display: flex;
-    margin-bottom: 40px;
-    position: relative;
-    min-height: 60px;
-    z-index: 2;
-}
+        /* Стили для элементов программы с новой кривой линией */
+        .program-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+            min-height: 60px;
+            z-index: 2;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
 
-.program-time {
-    width: 120px;
-    font-weight: 600;
-    color: var(--text-dark);
-    font-size: 1.1rem;
-    padding-right: 20px;
-    text-align: right;
-    min-width: 120px;
-    z-index: 2;
-    background-color: transparent;
-    padding-top: 5px;
-}
+        .program-time {
+            width: 100px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            padding-right: 20px;
+            text-align: right;
+            min-width: 100px;
+            z-index: 2;
+            background-color: transparent;
+            padding-top: 5px;
+            flex-shrink: 0;
+        }
 
-.program-content {
-    flex: 1;
-    padding-left: 40px;
-    z-index: 2;
-    background-color: transparent;
-}
+        .program-content {
+            flex: 1;
+            padding-left: 30px;
+            z-index: 2;
+            background-color: transparent;
+        }
 
-/* Новые декоративные элементы вместо точек */
-.program-time::after {
-    content: '';
-    position: absolute;
-    left: 140px;
-    width: 16px;
-    height: 16px;
-    background-color: var(--accent-green-dark);
-    border-radius: 50%;
-    border: 3px solid var(--primary-light);
-    z-index: 3;
-}
-
-/* Альтернативный вариант: листья вместо точек */
-.program-time::after {
-    content: '🍃';
-    position: absolute;
-    left: 140px;
-    font-size: 1.5rem;
-    z-index: 3;
-    transform: rotate(45deg);
-}
+        /* Новые декоративные элементы вместо точек */
+        .program-time::after {
+            content: '';
+            position: absolute;
+            left: 110px;
+            top: 10px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--accent-green-dark);
+            border-radius: 50%;
+            border: 3px solid var(--primary-light);
+            z-index: 3;
+        }
         
         /* Стили для дресс-кода */
         #dresscode {
@@ -760,9 +753,26 @@
             background-color: var(--accent-green);
             padding: 2rem 15px;
             box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.5s ease;
         }
         
         .form-group {
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group.hidden {
+            display: none;
+            opacity: 0;
+            height: 0;
+            margin-bottom: 0;
+            overflow: hidden;
+        }
+        
+        .form-group.visible {
+            display: block;
+            opacity: 1;
+            height: auto;
             margin-bottom: 1.5rem;
         }
         
@@ -771,6 +781,11 @@
             margin-bottom: 0.5rem;
             font-weight: 500;
             font-size: 1rem;
+        }
+        
+        .form-group.required label:after {
+            content: ' *';
+            color: #e53935;
         }
         
         .form-group input, 
@@ -784,6 +799,15 @@
             font-size: 16px; /* Важно для мобильных, чтобы не зумилось */
             -webkit-appearance: none;
             appearance: none;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
         }
         
         .form-group textarea {
@@ -801,11 +825,23 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            cursor: pointer;
         }
         
         .radio-option input[type="radio"] {
-            width: auto;
+            width: 20px;
+            height: 20px;
             margin-right: 5px;
+            cursor: pointer;
+        }
+        
+        .radio-option input[type="radio"]:checked {
+            accent-color: var(--accent-green-dark);
+        }
+        
+        .radio-option label {
+            cursor: pointer;
+            font-weight: 500;
         }
         
         .submit-btn {
@@ -817,7 +853,7 @@
             border-radius: 5px;
             cursor: pointer;
             width: 100%;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
             font-family: 'Montserrat', sans-serif;
             font-weight: 500;
             -webkit-appearance: none;
@@ -826,6 +862,17 @@
         
         .submit-btn:hover {
             background-color: #b2dfb3;
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        .submit-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
         }
         
         .deadline-note {
@@ -1010,16 +1057,24 @@
                 padding: 0 15px;
             }
             
-            /* Календарь */
+            /* Календарь - УБИРАЕМ ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ */
+            .calendar-scroll-container {
+                width: 100%;
+                overflow: hidden;
+                padding: 0;
+            }
+            
             .calendar-container {
-                width: 500px;
+                width: 100%;
+                max-width: 100%;
                 border-radius: 10px;
+                margin: 0;
             }
             
             .calendar-day {
-                padding: 10px 3px;
+                padding: 8px 3px;
                 font-size: 0.9rem;
-                min-height: 50px;
+                min-height: 45px;
             }
             
             .calendar-header {
@@ -1027,9 +1082,16 @@
                 font-size: 1.3rem;
             }
             
-            /* Таймлайн */
-            .program-timeline:before {
-                left: 20px;
+            /* Таймлайн - ИСПРАВЛЯЕМ НАЛОЖЕНИЯ */
+            .program-timeline {
+                padding-left: 0;
+                padding-right: 0;
+            }
+            
+            .program-item {
+                padding-left: 10px;
+                padding-right: 10px;
+                margin-bottom: 30px;
             }
             
             .program-time {
@@ -1039,14 +1101,15 @@
                 padding-right: 10px;
             }
             
-            .program-dot {
-                left: 16px;
+            .program-time::after {
+                left: 70px;
+                top: 8px;
                 width: 14px;
                 height: 14px;
             }
             
             .program-content {
-                padding-left: 25px;
+                padding-left: 20px;
             }
             
             .program-content h3 {
@@ -1075,7 +1138,7 @@
                 font-size: 1.1rem;
             }
             
-            /* Анкета */
+            /* Анкета - ИСПРАВЛЯЕМ ОТПРАВКУ ФОРМЫ */
             .rsvp-form {
                 padding: 1.5rem 15px;
                 border-radius: 0;
@@ -1189,13 +1252,13 @@
         
         @media screen and (max-width: 480px) {
             .calendar-container {
-                width: 400px;
+                width: 100%;
             }
             
             .calendar-day {
-                padding: 8px 2px;
+                padding: 6px 2px;
                 font-size: 0.8rem;
-                min-height: 45px;
+                min-height: 40px;
             }
             
             .calendar-header {
@@ -1203,24 +1266,26 @@
                 padding: 12px;
             }
             
-            .program-timeline:before {
-                left: 18px;
+            .program-item {
+                margin-bottom: 25px;
             }
             
             .program-time {
                 width: 70px;
                 min-width: 70px;
                 font-size: 0.9rem;
+                padding-right: 8px;
             }
             
-            .program-dot {
-                left: 14px;
+            .program-time::after {
+                left: 60px;
+                top: 6px;
                 width: 12px;
                 height: 12px;
             }
             
             .program-content {
-                padding-left: 20px;
+                padding-left: 15px;
             }
             
             .program-content h3 {
@@ -1271,27 +1336,29 @@
         
         @media screen and (max-width: 360px) {
             .calendar-container {
-                width: 320px;
+                width: 100%;
             }
             
             .calendar-day {
-                padding: 6px 1px;
+                padding: 5px 1px;
                 font-size: 0.7rem;
-                min-height: 40px;
+                min-height: 35px;
             }
             
             .program-time {
                 width: 60px;
                 min-width: 60px;
                 font-size: 0.85rem;
+                padding-right: 5px;
             }
             
-            .program-dot {
-                left: 12px;
+            .program-time::after {
+                left: 50px;
+                top: 5px;
             }
             
             .program-content {
-                padding-left: 18px;
+                padding-left: 12px;
             }
             
             .dog-gift-item {
@@ -1655,14 +1722,15 @@
             <h2 class="section-title">Анкета гостя</h2>
             <p class="deadline-note">Чтобы подтвердить свое присутствие, пожалуйста, заполните анкету до 20 мая 2026 года</p>
             
-            <form class="rsvp-form" id="weddingForm">
-                <div class="form-group">
-                    <label for="fullName">ФИО *</label>
-                    <input type="text" id="fullName" name="fullName" required>
+            <div class="rsvp-form" id="rsvpForm">
+                <!-- Шаг 1: Основная информация -->
+                <div class="form-group required" id="nameGroup">
+                    <label for="fullName">ФИО</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="Введите ваше полное имя">
                 </div>
                 
-                <div class="form-group">
-                    <label>Вы сможете присутствовать на нашей свадьбе? *</label>
+                <div class="form-group required" id="attendanceGroup">
+                    <label>Вы сможете присутствовать на нашей свадьбе?</label>
                     <div class="radio-group">
                         <div class="radio-option">
                             <input type="radio" id="attendYes" name="attendance" value="yes" required>
@@ -1675,18 +1743,19 @@
                     </div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="allergies">Аллергии в еде</label>
-                    <textarea id="allergies" name="allergies" placeholder="Если у вас есть аллергии, пожалуйста, укажите их здесь"></textarea>
+                <!-- Шаг 2: Дополнительная информация (появляется только если выбран "Приду") -->
+                <div class="form-group hidden required" id="allergiesGroup">
+                    <label for="allergies">Аллергии в еде *</label>
+                    <textarea id="allergies" name="allergies" placeholder="Пожалуйста, укажите, есть ли у вас аллергии или ограничения в еде. Если нет - напишите 'Нет аллергий'." required></textarea>
                 </div>
                 
-                <div class="form-group">
+                <div class="form-group hidden" id="messageGroup">
                     <label for="message">Ваши пожелания молодым (необязательно)</label>
                     <textarea id="message" name="message" placeholder="Мы будем рады вашим пожеланиям!"></textarea>
                 </div>
                 
-                <button type="submit" class="submit-btn">Отправить ответ</button>
-            </form>
+                <button type="button" class="submit-btn" id="submitForm">Отправить ответ</button>
+            </div>
         </div>
     </section>
     
@@ -1718,7 +1787,7 @@
                         </a>
                         
                         <!-- Telegram (откроет приложение на мобильных) -->
-                        <a href="https://web.telegram.org/k/#1010355345" target="_blank" class="contact-link telegram">
+                        <a href="https://t.me/1010355345" target="_blank" class="contact-link telegram">
                             <i class="fab fa-telegram"></i> Для связи в телеграм
                         </a>
                     </div>
@@ -1742,7 +1811,7 @@
                         </a>
                         
                         <!-- Telegram (откроет приложение на мобильных) -->
-                        <a href="https://web.telegram.org/k/#@olesya_yuz" target="_blank" class="contact-link telegram">
+                        <a href="https://t.me/olesya_yuz" target="_blank" class="contact-link telegram">
                             <i class="fab fa-telegram"></i> Для связи в телеграм
                         </a>
                     </div>
@@ -1861,28 +1930,150 @@
             setInterval(updateCountdown, 1000);
             
             // Обработка формы анкеты
-            const weddingForm = document.getElementById('weddingForm');
+            const submitButton = document.getElementById('submitForm');
+            const nameInput = document.getElementById('fullName');
+            const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
+            const allergiesGroup = document.getElementById('allergiesGroup');
+            const messageGroup = document.getElementById('messageGroup');
+            const allergiesInput = document.getElementById('allergies');
+            const messageInput = document.getElementById('message');
             
-            weddingForm.addEventListener('submit', function(event) {
+            let currentAttendance = '';
+            
+            // Функция для показа/скрытия дополнительных полей
+            function toggleAdditionalFields() {
+                if (currentAttendance === 'yes') {
+                    // Показываем дополнительные поля с анимацией
+                    setTimeout(() => {
+                        allergiesGroup.classList.remove('hidden');
+                        allergiesGroup.classList.add('visible');
+                        messageGroup.classList.remove('hidden');
+                        messageGroup.classList.add('visible');
+                    }, 10);
+                    
+                    // Обновляем текст кнопки
+                    submitButton.textContent = 'Отправить ответ';
+                } else if (currentAttendance === 'no') {
+                    // Скрываем дополнительные поля
+                    allergiesGroup.classList.add('hidden');
+                    allergiesGroup.classList.remove('visible');
+                    messageGroup.classList.add('hidden');
+                    messageGroup.classList.remove('visible');
+                    
+                    // Обновляем текст кнопки
+                    submitButton.textContent = 'Отправить ответ';
+                }
+            }
+            
+            // Обработчик изменения выбора радиокнопок
+            attendanceRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    currentAttendance = this.value;
+                    toggleAdditionalFields();
+                    
+                    // Визуальная обратная связь при выборе радиокнопки
+                    attendanceRadios.forEach(r => {
+                        const label = r.nextElementSibling;
+                        if (r.checked) {
+                            label.style.fontWeight = '700';
+                            label.style.color = '#2E7D32';
+                        } else {
+                            label.style.fontWeight = '500';
+                            label.style.color = '';
+                        }
+                    });
+                });
+            });
+            
+            // Функция проверки формы
+            function validateForm() {
+                const fullName = nameInput.value.trim();
+                
+                // Проверка имени
+                if (!fullName) {
+                    alert('Пожалуйста, введите ваше ФИО.');
+                    nameInput.focus();
+                    return false;
+                }
+                
+                // Проверка выбора присутствия
+                if (!currentAttendance) {
+                    alert('Пожалуйста, выберите, сможете ли вы присутствовать на свадьбе.');
+                    return false;
+                }
+                
+                // Если выбрано "Приду", проверяем аллергии
+                if (currentAttendance === 'yes') {
+                    const allergies = allergiesInput.value.trim();
+                    if (!allergies) {
+                        alert('Пожалуйста, укажите информацию об аллергиях в еде. Если аллергий нет, напишите "Нет аллергий".');
+                        allergiesInput.focus();
+                        return false;
+                    }
+                }
+                
+                return true;
+            }
+            
+            // Обработчик отправки формы
+            submitButton.addEventListener('click', function(event) {
                 event.preventDefault();
+                event.stopPropagation();
+                
+                if (!validateForm()) {
+                    return;
+                }
                 
                 // Сбор данных из формы
                 const formData = {
-                    fullName: document.getElementById('fullName').value,
-                    attendance: document.querySelector('input[name="attendance"]:checked').value,
-                    allergies: document.getElementById('allergies').value,
-                    message: document.getElementById('message').value,
+                    fullName: nameInput.value.trim(),
+                    attendance: currentAttendance,
+                    allergies: currentAttendance === 'yes' ? allergiesInput.value.trim() : 'Не применимо',
+                    message: currentAttendance === 'yes' ? messageInput.value.trim() : '',
                     timestamp: new Date().toLocaleString()
                 };
+                
+                // Формирование сообщения для пользователя
+                let message = `Спасибо, ${formData.fullName}!\n\n`;
+                
+                if (formData.attendance === 'yes') {
+                    message += `✅ Вы подтвердили свое присутствие на нашей свадьбе.\n`;
+                    message += `📝 Информация об аллергиях: ${formData.allergies}\n`;
+                    if (formData.message) {
+                        message += `💝 Ваши пожелания: ${formData.message}\n`;
+                    }
+                    message += `\nЖдём вас с нетерпением 20 июня 2026 года!`;
+                } else {
+                    message += `Мы сожалеем, что вы не сможете быть с нами в этот день.\n`;
+                    message += `Спасибо, что нашли время ответить на приглашение!`;
+                }
+                
+                // Показываем сообщение
+                alert(message);
                 
                 // В реальном проекте здесь должен быть код отправки данных на сервер
                 // или в Telegram бота через API
                 
-                // Для демонстрации просто показываем сообщение
-                alert(`Спасибо, ${formData.fullName}! Ваш ответ сохранен. Мы получили ваше подтверждение: ${formData.attendance === 'yes' ? 'Приду' : 'Не смогу прийти'}`);
-                
                 // Очистка формы
-                weddingForm.reset();
+                nameInput.value = '';
+                attendanceRadios.forEach(radio => {
+                    radio.checked = false;
+                    const label = radio.nextElementSibling;
+                    label.style.fontWeight = '500';
+                    label.style.color = '';
+                });
+                allergiesInput.value = '';
+                messageInput.value = '';
+                currentAttendance = '';
+                
+                // Скрываем дополнительные поля
+                allergiesGroup.classList.add('hidden');
+                allergiesGroup.classList.remove('visible');
+                messageGroup.classList.add('hidden');
+                messageGroup.classList.remove('visible');
+                
+                // Возвращаем фокус на имя
+                nameInput.focus();
             });
             
             // Плавная прокрутка при клике на стрелку вниз
@@ -1921,17 +2112,11 @@
             }
             
             createPetals();
-            
-            // Фикс для предотвращения зума на мобильных при фокусе на инпутах
-            document.querySelectorAll('input, textarea, select').forEach(element => {
-                element.addEventListener('focus', function() {
-                    window.scrollTo(0, 0);
-                });
-            });
         });
     </script>
 </body>
 </html>
+
 
 
 
