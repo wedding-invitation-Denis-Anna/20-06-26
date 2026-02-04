@@ -517,13 +517,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: rgb(17, 90, 34);
             font-weight: 700;
             font-size: 1.2rem;
             box-shadow: 0 5px 15px rgba(200, 230, 201, 0.5);
             position: relative;
             z-index: 3;
-            border: 4px solid white;
+            border: 4px solid rgb(54, 108, 41);
         }
         
         .program-time-circle:before {
@@ -586,13 +586,7 @@
             padding-left: 15px;
         }
         
-        .program-content h3:before {
-            content: '✨';
-            position: absolute;
-            left: -5px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+        
         
         .program-content p {
             color: var(--text-light);
@@ -2244,64 +2238,69 @@
         </div>
     </div>
     
-    <!-- Блок с дресс-кодом -->
-    <section id="dresscode">
-        <div class="container">
-            <h2 class="section-title">Дресс-код</h2>
-            <p class="dresscode-description">
-                Нам очень важна общая эстетика этого дня, поэтому просим вас поддержать нашу концепцию. 
-                Пожалуйста, выбирайте однотонные наряды в коричневых и зеленых оттенках.
+<!-- Блок с дресс-кодом -->
+<section id="dresscode">
+    <div class="container">
+        <h2 class="section-title">Дресс-код</h2>
+        <p class="dresscode-description">
+            Нам очень важна общая эстетика этого дня, поэтому просим вас поддержать нашу концепцию. 
+            Пожалуйста, выбирайте однотонные наряды в коричневых и зеленых оттенках.
+        </p>
+        
+        <div class="info-card" style="max-width: 800px; margin: 2rem auto;">
+            <h3><i class="fas fa-female"></i> Для девушек</h3>
+            <p>Белый цвет в этот день - исключительно для невесты. Дорогие девушки, просим с уважением отнестись к этой детали.</p>
+        </div>
+        
+        <div class="info-card" style="max-width: 800px; margin: 2rem auto;">
+            <h3><i class="fas fa-male"></i> Для мужчин</h3>
+            <p>Просим вас выбрать классические брюки и рубашку в предложенной цветовой палитре. 
+            Шорты, джинсы и спортивная одежда не соответствуют формату нашего торжества.</p>
+            <p style="font-style: italic; margin-top: 0.5rem;">
+                Белая рубашка допускается и будет прекрасно сочетаться с нашей концепцией.
+            </p>
+        </div>
+        
+        <!-- Карточка с палитрой цветов -->
+        <div class="info-card" style="max-width: 800px; margin: 2rem auto; text-align: center;">
+            <h3 style="margin-bottom: 1.5rem;">
+                <i class="fas fa-palette"></i> Наша цветовая палитра
+            </h3>
+            
+            <!-- Изображение палитры -->
+            <div style="
+                margin: 1.5rem 0;
+                padding: 15px;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            ">
+                <img src="images/dress.jpg" alt="Цветовая палитра коричневых и зеленых оттенков" style="
+                    max-width: 100%;
+                    height: auto;
+                    border-radius: 8px;
+                    display: block;
+                    margin: 0 auto;
+                ">
+            </div>
+            
+            <!-- Подпись под изображением -->
+            <p style="
+                color: var(--text-light);
+                font-style: italic;
+                margin-top: 1rem;
+                padding: 0 1rem;
+            ">
+                Используйте эти оттенки для создания гармоничного образа
             </p>
             
-            <div class="info-card">
-                <h3>Белый цвет в этот день - исключительно для невесты. Дорогие девушки, просим с уважением отнестись к этой детали.</h3>
-                <h3>Белая рубашка у мужчин допускается.</h3>
-            </div>
-
-            <div class="color-examples">
-                <div class="color-sample">
-                    <div class="color-circle" style="background-color: #8B4513;"></div>
-                    <div class="color-name">Коричневый</div>
-                </div>
-                <div class="color-sample">
-                    <div class="color-circle" style="background-color: #A0522D;"></div>
-                    <div class="color-name">Терракотовый</div>
-                </div>
-                <div class="color-sample">
-                    <div class="color-circle" style="background-color: #2E8B57;"></div>
-                    <div class="color-name">Морской</div>
-                </div>
-                <div class="color-sample">
-                    <div class="color-circle" style="background-color: #556B2F;"></div>
-                    <div class="color-name">Оливковый</div>
-                </div>
-                <div class="color-sample">
-                    <div class="color-circle" style="background-color: #6B8E23;"></div>
-                    <div class="color-name">Зеленый</div>
-                </div>
-            </div>
             
-            <h3 style="text-align: center; margin-top: 3rem; margin-bottom: 1.5rem;">Примеры нарядов</h3>
-            <div class="outfit-examples">
-                <div class="outfit-sample">
-                    <div class="outfit-image" style="background-image: url('https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
-                    <div class="outfit-caption">Коричневое платье</div>
-                </div>
-                <div class="outfit-sample">
-                    <div class="outfit-image" style="background-image: url('https://images.unsplash.com/photo-1591369822091-9d0e66a69b3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
-                    <div class="outfit-caption">Зеленый костюм</div>
-                </div>
-                <div class="outfit-sample">
-                    <div class="outfit-image" style="background-image: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
-                    <div class="outfit-caption">Терракотовое платье</div>
-                </div>
-                <div class="outfit-sample">
-                    <div class="outfit-image" style="background-image: url('https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
-                    <div class="outfit-caption">Оливковый наряд</div>
-                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
 
     <!-- Волнообразный разделитель -->
     <div class="section-divider">
@@ -2313,32 +2312,39 @@
     </div>
     
     <!-- Блок с важной информацией -->
-    <section id="important-info">
-        <div class="container">
-            <h2 class="section-title">Важная информация</h2>
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3><i class="fas fa-user-friends"></i> Гости</h3>
-                    <p>Мы пригласили каждого из вас лично, потому что вы — важная часть нашей жизни. Это будет камерная свадьба, мы хотим окружать себя только теми людьми, с которыми по-настоящему близки, быть в кругу тех, с кем мы действительно хотим разделить эти моменты.</p>
-                
+<section id="important-info">
+    <div class="container">
+        <h2 class="section-title">Важная информация</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3><i class="fas fa-user-friends"></i> Гости</h3>
+                <p>Мы пригласили каждого из вас лично, потому что вы — важная часть нашей жизни. Это будет камерная свадьба, мы хотим окружать себя только теми людьми, с которыми по-настоящему близки, быть в кругу тех, с кем мы действительно хотим разделить эти моменты.</p>
                 <p style="margin-top: 1rem; font-weight: 600;">Поэтому формат "+1" не предусмотрен — мы искренне надеемся на ваше понимание.</p>
-                </div>
-                <div class="info-card">
-                    <h3><i class="fas fa-fan"></i>Цветы</h3>
-                    <p>Цветы прекрасны, но у жениха аллергия на многие из них.</p>
-                    </p>Если вам захочется подарить нам цветы, позвольте предложить альтернативу: помогите нам сделать подарок тем, кто особенно в нём нуждается — собакам из приюта.</p>
-                    </p>Корм, лакомства, поводки или другие необходимые вещи — каждая мелочь подарит им частичку заботы.</p>
-                    
-                    <p style="margin-top: 1rem; font-style: italic;">Все подарки для собак мы отвезём в приют для животных после свадьбы.</p>
-                </div>
-                <div class="info-card">
-                    <h3><i class="fas fa-hand-holding-heart"></i> Признания</h3>
-                    <p>План на наш день: мы женимся, вы отдыхаете :)</p>
-                    </p>Любые другие предложения (особенно руки и сердца) оставим на другой день. Обещаем сделать то же самое для вас, когда придет время!</p>
-                </div>
+            </div>
+            
+            <div class="info-card">
+                <h3><i class="fas fa-fan"></i> Цветы</h3>
+                <p>Цветы прекрасны, но у жениха аллергия на многие из них.</p>
+                <p>Если вам захочется подарить нам цветы, позвольте предложить альтернативу: помогите нам сделать подарок тем, кто особенно в нём нуждается — собакам из приюта.</p>
+                <p>Корм, лакомства, поводки или другие необходимые вещи — каждая мелочь подарит им частичку заботы.</p>
+                <p style="margin-top: 1rem; font-style: italic;">Все подарки для собак мы отвезём в приют для животных после свадьбы.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><i class="fas fa-hand-holding-heart"></i> Признания</h3>
+                <p>План на наш день: мы женимся, вы отдыхаете :)</p>
+                <p>Любые другие предложения (особенно руки и сердца) оставим на другой день. Обещаем сделать то же самое для вас, когда придет время!</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><i class="fas fa-shield-alt"></i> Очень важная просьба, касающаяся безопасности</h3>
+                <p>Ваша любовь, поддержка и присутствие — самый лучший подарок для нас! Если вы хотите порадовать нас дополнительно, пожалуйста, воздержитесь от пиротехники (фейерверков, петард, хлопушек)</p>
+                <p>Наша площадка не позволяет их использовать, и мы очень переживаем за безопасность наших гостей.</p>
+                <p>Нам будет спокойнее, если пиротехника останется за пределами нашего праздника. Спасибо, что вы с нами!</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Второй разделитель (зеркальный) -->
     <div class="section-divider">
