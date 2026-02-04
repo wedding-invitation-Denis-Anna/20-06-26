@@ -783,15 +783,13 @@
         }
         
         .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 15px;
-            position: relative;
-            z-index: 1;
-        }
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+    gap: 2rem;
+    max-width: 1400px; /* Увеличили максимальную ширину */
+    margin: 0 auto;
+    padding: 0 15px;
+}
         
         .info-card {
             background: linear-gradient(145deg, white, var(--accent-green-light));
@@ -831,6 +829,21 @@
             color: var(--accent-green-dark);
             font-size: 1.5rem;
         }
+
+        /* Адаптивность для 4 блоков */
+@media screen and (max-width: 1200px) {
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr; /* 1 колонка на мобильных */
+        gap: 1rem;
+        padding: 0 10px;
+    }
+}
         
         /* Стили для блока с подарками */
         #gifts {
@@ -2986,6 +2999,7 @@ ${formData.message}` : '💝 *Пожелания:* Не указаны'}
     </script>
 </body>
 </html>
+
 
 
 
