@@ -2092,7 +2092,7 @@
         <h2 class="section-title">Дресс-код</h2>
         <p class="dresscode-description">
             Нам очень важна общая эстетика этого дня, поэтому просим вас поддержать нашу концепцию. 
-            Пожалуйста, выбирайте однотонные наряды в коричневых и зеленых оттенках, воздержавшись от ярких цветов и рисунков.
+            Пожалуйста, выбирайте однотонные наряды в коричневых и зеленых оттенках.
         </p>
         
         <div class="info-card" style="max-width: 800px; margin: 2rem auto;">
@@ -2249,7 +2249,7 @@
             
             <div class="info-card">
                 <h3><i class="fas fa-shield-alt"></i> Очень важная просьба, касающаяся безопасности</h3>
-                <p>Ваша любовь, поддержка и присутствие — самый лучший подарок для нас! И чтобы праздник оставался прекрасным для всех, мы очень просим вас поддержать нас в одном: пожалуйста, никакой пиротехники (фейерверков, петард, хлопушек, салютов).</p>
+                <p>Ваша любовь, поддержка и присутствие — самый лучший подарок для нас! Если вы хотите порадовать нас дополнительно, пожалуйста, воздержитесь от пиротехники (фейерверков, петард, хлопушек)</p>
                 <p>Наша площадка не позволяет их использовать, и мы очень переживаем за безопасность наших гостей.</p>
                 <p>Нам будет спокойнее, если пиротехника останется за пределами нашего праздника. Спасибо, что вы с нами!</p>
             </div>
@@ -2300,47 +2300,27 @@
     </div>
 
     <!-- Блок с анкетой -->
-    <section id="rsvp">
-        <div class="container">
-            <h2 class="section-title">Анкета гостя</h2>
-            <p class="deadline-note">Чтобы подтвердить свое присутствие, пожалуйста, заполните анкету до 20 мая 2026 года</p>
-            
-            <div class="rsvp-form" id="rsvpForm">
-                <!-- Шаг 1: Основная информация -->
-                <div class="form-group required" id="nameGroup">
-                    <label for="fullName">ФИО</label>
-                    <input type="text" id="fullName" name="fullName" required placeholder="Введите ваше полное имя">
-                </div>
-                
-                <div class="form-group required" id="attendanceGroup">
-                    <label>Вы сможете присутствовать на нашей свадьбе?</label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="attendYes" name="attendance" value="yes" required>
-                            <label for="attendYes">С радостью приду</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="attendNo" name="attendance" value="no">
-                            <label for="attendNo">К сожалению, не смогу</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Шаг 2: Дополнительная информация (появляется только если выбран "Приду") -->
-                <div class="form-group hidden required" id="allergiesGroup">
-                    <label for="allergies">Аллергии в еде</label>
-                    <textarea id="allergies" name="allergies" placeholder="Пожалуйста, укажите, есть ли у вас аллергии или ограничения в еде. Если нет - напишите 'Нет аллергий'." required></textarea>
-                </div>
-                
-                <div class="form-group hidden" id="messageGroup">
-                    <label for="message">Ваши пожелания молодым (необязательно)</label>
-                    <textarea id="message" name="message" placeholder="Мы будем рады вашим пожеланиям!"></textarea>
-                </div>
-                
-                <button type="button" class="submit-btn" id="submitForm">Отправить ответ</button>
-            </div>
+<section id="rsvp">
+    <div class="container">
+        <h2 class="section-title">Анкета гостя</h2>
+        <p class="deadline-note">
+            Чтобы подтвердить свое присутствие, пожалуйста, заполните анкету до 20 мая 2026 года
+        </p>
+
+        <div class="rsvp-form" style="padding: 0; overflow: hidden;">
+            <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSfdqtFbzqniNTxRSU6leXpD7CdU3Fro2m4BoMfBr1PgP0BOUA/viewform?embedded=true" 
+                width="100%" 
+                height="900" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0"
+                style="border-radius: 20px; background: white;">
+                Загрузка…
+            </iframe>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Блок с Telegram каналом -->
 <!-- Минималистичный вариант -->
